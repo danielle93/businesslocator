@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     var distanceMiles = distance / 0.62;
                     html += "<li><h3>" + r.name + "</h3>";
                     html += "<p><address>" + r.address + "</address>";
-                    html += "<span class='distance'>" + distance.toFixed(1) + "km</span></p>";
+                    html += "<span class='distance'>" + distance.toFixed(1) + "mi</span></p>";
                     html += "</li>";
                 }
                 list.innerHTML = html;
@@ -60,8 +60,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var map;
 
+var lat = position.coords.latitude;
+var lng = position.coords.longitude;
+
 function initMap() {
-    var uluru = {lat: -25.363, lng: 131.044};
+    
+    var uluru = {lat: lat, lng: lng};
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
         center: uluru
